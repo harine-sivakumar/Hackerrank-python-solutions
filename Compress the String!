@@ -1,0 +1,11 @@
+from itertools import groupby
+
+# Read input string from the user
+s = input()
+
+# Iterate over the groups of consecutive characters
+# k is the character (key), g is the group (iterable)
+for k, g in groupby(s):
+    # Calculate the length of the group and convert the character key to an integer
+    # The output format requires tuples with integer values for the characters
+    print(f"({len(list(g))}, {int(k)})", end=" ")
