@@ -1,0 +1,26 @@
+import itertools
+
+# Read K and M from the first line of input
+try:
+    K, M = map(int, input().split())
+except ValueError:
+    exit()
+
+# Read the K lists, ignoring the first element of each line
+lists_to_process = []
+for _ in range(K):
+    line = list(map(int, input().split()))
+    lists_to_process.append(line[1:])
+
+# Generate all possible combinations using the Cartesian product
+all_combinations = itertools.product(*lists_to_process)
+
+# Calculate the function value for each combination and find the maximum
+max_s = 0
+for combination in all_combinations:
+    current_sum = sum(x**2 for x in combination) % M
+    if current_sum > max_s:
+        max_s = current_sum
+
+# Print the final result
+print(max_s)
