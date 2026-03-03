@@ -1,0 +1,17 @@
+def merge_the_tools(string, k):
+    # Iterate over the string in steps of k
+    for i in range(0, len(string), k):
+        # Extract the substring of length k
+        substring = string[i : i + k]
+        # Use dict.fromkeys() to remove duplicates while preserving order
+        # dict.fromkeys(substring) creates a dictionary where each character is a unique key.
+        # Joining the keys results in a string with unique characters in their original order.
+        unique_substring = "".join(dict.fromkeys(substring))
+        # Print the resulting unique substring
+        print(unique_substring)
+
+
+
+if __name__ == '__main__':
+    string, k = input(), int(input())
+    merge_the_tools(string, k)
