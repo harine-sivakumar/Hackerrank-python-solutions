@@ -1,3 +1,12 @@
 if __name__ == '__main__':
-    n = int(input())
-    arr = map(int, input().split())
+    # Read the number of scores (n) - note: n is often unused in the final code logic
+    n = int(input()) 
+    
+    # Read the scores as a map object, convert to a set to remove duplicates, then convert to a list
+    scores = list(set(map(int, input().split())))
+    
+    # Sort the list in ascending order
+    scores.sort()
+    
+    # Print the second-to-last element using negative indexing, which is the runner-up score
+    print(scores[-2]) 
