@@ -1,0 +1,26 @@
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+import re
+
+# Read the number of lines
+n = int(input().strip())
+css_code = ""
+
+# Read the entire CSS block into a single string for easier multi-line processing
+for _ in range(n):
+    css_code += input() + "\n"
+
+# The regex pattern looks for hex codes preceded by a colon or space
+# and not at the beginning of a line (using negative lookbehind)
+# It captures either 3 or 6 hex digits (case-insensitive)
+pattern = r"(?<=[ :])#(?:[a-fA-F0-9]{3}){1,2}(?=[;,\n ])"
+
+# A more simplified pattern that works for many cases, assuming the problem constraints:
+# pattern = r"(?<!^)(#(?:[A-Fa-f0-9]{3}){1,2})"
+
+# Find all occurrences of the pattern
+matches = re.findall(pattern, css_code)
+
+# Print each found color code on a new line
+for match in matches:
+    print(match)
+
