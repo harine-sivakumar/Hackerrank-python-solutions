@@ -1,0 +1,19 @@
+import math
+
+# Read input for lengths AB and BC
+AB = int(input())
+BC = int(input())
+
+# Calculate the angle using the tangent function for angle ACB
+# atan2 is recommended to avoid potential division by zero issues,
+# though atan(AB/BC) works given the problem constraints (positive natural numbers)
+angle_rad = math.atan2(AB, BC)
+
+# Convert the angle from radians to degrees
+angle_deg = math.degrees(angle_rad)
+
+# Round the angle to the nearest integer
+rounded_angle = round(angle_deg)
+
+# Print the result with the degree symbol
+print(str(rounded_angle) + chr(176))
