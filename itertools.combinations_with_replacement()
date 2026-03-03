@@ -1,0 +1,17 @@
+from itertools import combinations_with_replacement
+
+# Read the input string and integer from STDIN
+s, k = input().split()
+
+# Sort the string to ensure lexicographical order of combinations
+s_sorted = sorted(s)
+k_int = int(k)
+
+# Generate combinations with replacement
+# The function returns an iterator of tuples
+combinations_list = combinations_with_replacement(s_sorted, k_int)
+
+# Print each combination on a new line
+for combination in combinations_list:
+    # Join the characters in the tuple to form a string
+    print("".join(combination))
