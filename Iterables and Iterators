@@ -1,0 +1,39 @@
+from itertools import combinations
+import sys
+
+def solve():
+    # Read the number of elements (N) - the input spec is a bit loose on N usage, typically it's implied by the list length
+    try:
+        N = int(input())
+    except ValueError:
+        # Handle case where N might be missing or on the same line as letters if input parsing is tricky
+        pass
+
+    # Read the list of letters and split into a list
+    letters = input().split()
+    
+    # Read the number of indices to select (K)
+    K = int(input())
+
+    # Generate all combinations of K indices from the list of letters
+    # The 'combinations' function yields an iterator of tuples
+    all_combinations = list(combinations(letters, K))
+    
+    # Calculate the total number of combinations
+    total_combinations = len(all_combinations)
+    
+    # Count the number of combinations that contain the letter 'a'
+    count_a_present = 0
+    for combo in all_combinations:
+        if 'a' in combo:
+            count_a_present += 1
+            
+    # Calculate the probability and print the result, rounded to 4 decimal places
+    if total_combinations > 0:
+        probability = count_a_present / total_combinations
+        print(f"{probability:.4f}") # Using f-string for formatting to required precision
+    else:
+        print("0.0000")
+
+if __name__ == '__main__':
+    solve()
