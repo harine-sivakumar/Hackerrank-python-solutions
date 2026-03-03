@@ -1,2 +1,2 @@
 # Hackerrank-python-solutions
-All 115 solutions in python in hackerrank.
+All 115 solutions in python in hackerrank are available.
