@@ -6,8 +6,15 @@ import random
 import re
 import sys
 
-# Complete the solve function below.
 def solve(s):
+    # Split the string by spaces, capitalize each word, and join them back
+    # using ' '.join() to handle single spaces
+    words = s.split(' ') 
+    capitalized_words = [word.capitalize() for word in words]
+    result = ' '.join(capitalized_words)
+    return result
+
+
 
 if __name__ == '__main__':
     fptr = open(os.environ['OUTPUT_PATH'], 'w')
