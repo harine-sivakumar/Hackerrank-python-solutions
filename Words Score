@@ -1,0 +1,31 @@
+//In Pypy3
+import re
+
+def is_vowel(letter):
+    """Check if a letter is a vowel (a, e, i, o, u, or y)."""
+    return letter in ['a', 'e', 'i', 'o', 'u', 'y']
+
+def score_words(words):
+    """
+    Calculates the total score for a list of words.
+    A word scores 2 if it has an even number of vowels, otherwise 1.
+    """
+    score = 0
+    for word in words:
+        num_vowels = 0
+        for letter in word:
+            if is_vowel(letter):
+                num_vowels += 1
+        
+        # Check if the number of vowels is even or odd
+        if num_vowels % 2 == 0:
+            score += 2
+        else:
+            score += 1
+    return score
+
+if __name__ == '__main__':
+    # The following lines are part of the locked template code in HackerRank
+    n = int(input())
+    words = input().split()
+    print(score_words(words))
