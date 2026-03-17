@@ -1,0 +1,23 @@
+//In Pypy3
+import xml.etree.ElementTree as etree
+
+maxdepth = 0
+
+def depth(elem, level):
+    global maxdepth
+    # Update maxdepth if the current level + 1 (for the child) is greater
+    maxdepth = max(maxdepth, level + 1)
+    # Recursively call the depth function for each child element
+    for child in elem:
+        depth(child, level + 1)
+
+if __name__ == '__main__':
+    n = int(input())
+    xml = ""
+    for i in range(n):
+        xml = xml + input() + "\n"
+    # Parse the XML string into an ElementTree object
+    tree = etree.ElementTree(etree.fromstring(xml))
+    # Call the depth function starting from the root with an initial level of -1
+    depth(tree.getroot(), -1)
+    print(maxdepth)
