@@ -1,0 +1,14 @@
+//In Pypy3
+import numpy
+
+# Read N, M, and P (dimensions) from the first line of input
+N, M, P = map(int, input().split())
+
+# Read the first array (N rows of P columns)
+arr1 = numpy.array([input().split() for _ in range(N)], int)
+
+# Read the second array (M rows of P columns)
+arr2 = numpy.array([input().split() for _ in range(M)], int)
+
+# Concatenate the arrays along axis 0 (row-wise) and print the result
+print(numpy.concatenate((arr1, arr2), axis=0))
