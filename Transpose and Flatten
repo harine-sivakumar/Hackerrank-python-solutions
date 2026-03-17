@@ -1,0 +1,20 @@
+//In Pypy3
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+import numpy
+
+# Read the dimensions N (rows) and M (columns)
+n, m = map(int, input().split())
+
+# Read the array elements into a list of lists, then convert to a NumPy array
+matrix_elements = []
+for _ in range(n):
+    row = list(map(int, input().split()))
+    matrix_elements.append(row)
+
+arr = numpy.array(matrix_elements)
+
+# Print the transpose of the array
+print(arr.transpose())
+
+# Print the flattened array
+print(arr.flatten())
