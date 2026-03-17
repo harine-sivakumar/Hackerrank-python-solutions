@@ -1,0 +1,17 @@
+//In Pypy3
+import numpy
+
+# Read the input string and split it into a list of strings
+input_str = input().split()
+
+# Convert the list of strings to a list of integers using map
+# The dtype argument in numpy.array can also handle the type conversion
+# Source: https://github.com/rene-d/hackerrank/blob/master/python/numpy/np-shape-reshape.py
+v = numpy.array(input_str, numpy.integer) 
+
+# Reshape the 1D array 'v' into a 3x3 matrix
+# Source: https://www.hackerrank.com/challenges/np-shape-reshape/forum/comments/1297828
+m = numpy.reshape(v, (3, 3))
+
+# Print the resulting NumPy array
+print(m)
