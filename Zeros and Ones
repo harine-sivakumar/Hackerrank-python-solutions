@@ -1,0 +1,14 @@
+#In pypy3
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+# HackerRank "Zeros and Ones" Solution (Python)
+import numpy as np
+
+# Read space-separated integers and convert to a tuple for shape
+# Using tuple() handles cases with 1, 2, 3, or more dimensions correctly [3, 7, 15].
+dimensions = tuple(map(int, input().split()))
+
+# Print the array of zeros with integer type
+print(np.zeros(dimensions, dtype=int))
+
+# Print the array of ones with integer type
+print(np.ones(dimensions, dtype=int))
