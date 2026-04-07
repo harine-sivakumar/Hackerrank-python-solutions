@@ -1,0 +1,18 @@
+#In PyPy
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+import re
+import sys
+
+def check_regex(pattern):
+    try:
+        re.compile(pattern)
+        return True
+    except re.error:
+        return False
+
+# Read all lines of input
+input_lines = sys.stdin.read().splitlines()
+
+# The first line is the number of test cases, skip it for the loop
+for line in input_lines[1:]:
+    print(check_regex(line))
