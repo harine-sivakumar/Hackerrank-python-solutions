@@ -1,0 +1,14 @@
+#In pypy3
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+import numpy
+
+# Set printing options to ensure proper formatting
+numpy.set_printoptions(legacy='1.13')
+
+# Read input array
+a = numpy.array(input().split(), float)
+
+# Print floor, ceil, and rint (rounded) values
+print(numpy.floor(a))
+print(numpy.ceil(a))
+print(numpy.rint(a))
