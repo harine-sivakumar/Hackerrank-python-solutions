@@ -1,0 +1,11 @@
+#In pypy3
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+import numpy
+# Set legacy print options to pass the specific test case formatting
+numpy.set_printoptions(legacy='1.13')
+
+# Read N and M from input
+n, m = map(int, input().split())
+
+# Print the matrix with 1s on the diagonal
+print(numpy.eye(n, m))
