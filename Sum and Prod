@@ -1,0 +1,17 @@
+#In pypy3
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+import numpy as np
+
+# Read input for N (rows) and M (columns)
+N, M = map(int, input().split())
+
+# Create the 2D array from input
+arr = np.array([input().split() for _ in range(N)], int)
+
+# Compute sum along axis 0
+sum_axis0 = np.sum(arr, axis=0)
+
+# Compute product of the sum
+result = np.prod(sum_axis0)
+
+print(result)
