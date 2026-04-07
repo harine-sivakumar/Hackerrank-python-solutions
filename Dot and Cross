@@ -1,0 +1,16 @@
+#pypy3
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+import numpy
+
+# Read the dimension N
+n = int(input())
+
+# Read array A as a numpy array
+# Use a list comprehension and map to convert input strings to integers
+a = numpy.array([input().split() for _ in range(n)], int)
+
+# Read array B as a numpy array
+b = numpy.array([input().split() for _ in range(n)], int)
+
+# Perform matrix multiplication using numpy.dot() and print the result
+print(numpy.dot(a, b))
