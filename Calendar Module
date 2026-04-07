@@ -1,0 +1,13 @@
+#In pypy3
+mport calendar
+
+# Read month, day, and year as integers from a single line of input
+month, day, year = map(int, input().split())
+
+# Get the day of the week index (0 for Monday, 6 for Sunday)
+# The calendar.weekday() function takes parameters as (year, month, day)
+day_index = calendar.weekday(year, month, day)
+
+# Use the day index to get the name of the day from calendar.day_name list
+# and convert it to uppercase as required by the problem statement
+print(calendar.day_name[day_index].upper())
