@@ -1,0 +1,21 @@
+#In pypy3
+from collections import defaultdict
+
+# Read n and m
+n, m = map(int, input().split())
+
+# Create a defaultdict where each new key defaults to an empty list
+d = defaultdict(list)
+
+# Read words for group A and store their 1-based indices in the defaultdict
+for i in range(1, n + 1):
+    d[input()].append(i)
+
+# Read words for group B and print their indices
+for _ in range(m):
+    word_b = input()
+    if word_b in d:
+        # The * operator unpacks the list elements for printing
+        print(*d[word_b])
+    else:
+        print(-1)
