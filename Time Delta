@@ -1,0 +1,28 @@
+#In Python3
+import sys
+from datetime import datetime
+
+def time_delta(t1, t2):
+    # Define the required format string to parse the timestamps
+    fmt = "%a %d %b %Y %H:%M:%S %z"
+    
+    # Convert the string timestamps to datetime objects
+    dt1 = datetime.strptime(t1, fmt)
+    dt2 = datetime.strptime(t2, fmt)
+    
+    # Calculate the absolute difference (timedelta object)
+    # The result will automatically handle the time zone differences
+    delta = abs(dt1 - dt2)
+    
+    # Return the total difference in seconds as a string
+    return str(int(delta.total_seconds()))
+
+if __name__ == '__main__':
+    # The code below is part of the standard HackerRank template
+    # It handles input and output redirection
+    t = int(input().strip())
+    for _ in range(t):
+        t1 = input().strip()
+        t2 = input().strip()
+        delta = time_delta(t1, t2)
+        print(delta)
