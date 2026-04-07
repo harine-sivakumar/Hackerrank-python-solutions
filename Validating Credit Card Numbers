@@ -1,0 +1,36 @@
+#pypy3
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+import re
+
+def is_valid_credit_card(card_number):
+    # 1. Check format and structure
+    # The regex ensures:
+    # ^[456] - Starts with 4, 5, or 6.
+    # (\d{15}$) - Either followed by 15 digits to end the string.
+    # | - OR
+    # (\d{3}(-\d{4}){3}$) - Followed by 3 digits, then three groups of -XXXX, to end the string.
+    format_pattern = r"^[456](\d{15}|\d{3}(-\d{4}){3})$"
+    
+    if not re.match(format_pattern, card_number):
+        return "Invalid"
+    
+    # 2. Check for 4 or more consecutive repeated digits after removing hyphens
+    # Remove all hyphens for the consecutive check
+    processed_card_number = card_number.replace('-', '')
+    
+    # The regex checks for:
+    # (\d) - A digit (captured in group 1).
+    # \1{3,} - Followed by 3 or more occurrences of the same digit (total 4+ consecutive).
+    consecutive_pattern = r"(\d)\1{3,}"
+    
+    if re.search(consecutive_pattern, processed_card_number):
+        return "Invalid"
+    
+    return "Valid"
+
+# Main part for HackerRank input
+if __name__ == "__main__":
+    n = int(input())
+    for _ in range(n):
+        card = input().strip()
+        print(is_valid_credit_card(card))
