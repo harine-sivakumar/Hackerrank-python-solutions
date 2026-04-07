@@ -1,0 +1,29 @@
+#pypy3
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+import re
+
+def validate_uid(uid):
+    # Combined regex pattern using lookaheads for all conditions
+    pattern = re.compile(
+        r"""
+        ^                   # Start of the string
+        (?=(?:.*[A-Z]){2,})  # At least 2 uppercase letters
+        (?=(?:.*\d){3,})    # At least 3 digits
+        (?!.*(.).*\1)       # No character should repeat
+        [a-zA-Z0-9]{10}     # Exactly 10 alphanumeric characters
+        $                   # End of the string
+        """,
+        re.VERBOSE
+    )
+    
+    if re.fullmatch(pattern, uid):
+        return "Valid"
+    else:
+        return "Invalid"
+
+# Main part for HackerRank input format
+if __name__ == '__main__':
+    T = int(input().strip())
+    for _ in range(T):
+        uid_input = input().strip()
+        print(validate_uid(uid_input))
