@@ -1,0 +1,20 @@
+#In pypy3
+m = int(input())
+# Read the elements for the first set and convert them to a set of integers
+set_a = set(map(int, input().split()))
+
+# Read the number of elements for the second set (N) - this input is also ignored
+n = int(input())
+# Read the elements for the second set and convert them to a set of integers
+set_b = set(map(int, input().split()))
+
+# Calculate the symmetric difference using the ^ operator
+# Alternatively, you can use: result = set_a.symmetric_difference(set_b)
+result = set_a ^ set_b
+
+# Sort the resulting elements in ascending order
+sorted_result = sorted(result)
+
+# Print each element of the sorted result on a new line
+for num in sorted_result:
+    print(num)
