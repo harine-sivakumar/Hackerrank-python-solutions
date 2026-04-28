@@ -1,0 +1,21 @@
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+import re
+
+def replace_logic(match):
+    # This function is called for each match and returns the appropriate replacement
+    if match.group() == '&&':
+        return 'and'
+    else:
+        return 'or'
+
+# The core logic uses re.sub with a lambda or function for replacement
+# The pattern uses positive lookbehind (?<= ) and positive lookahead (?= )
+# to ensure spaces are present without including them in the match itself.
+pattern = r'(?<= )(&&|\|\|)(?= )' 
+
+for _ in range(int(input())):
+    line = input()
+    # Use re.sub() with the custom replacement function or a lambda
+    modified_line = re.sub(pattern, replace_logic, line)
+    print(modified_line)
+
