@@ -1,0 +1,15 @@
+import re
+
+# Read input from STDIN
+s = input()
+
+# Search for the first occurrence of an alphanumeric character (a-z, A-Z, 0-9)
+# that is immediately followed by one or more of the same character (\1+)
+m = re.search(r'([a-zA-Z0-9])\1+', s)
+
+# If a match is found, print the first captured group (the repeating character itself)
+if m:
+    print(m.group(1))
+# Otherwise, print -1
+else:
+    print("-1")
