@@ -1,0 +1,28 @@
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+import re
+import email.utils
+
+def solve():
+    n = int(input())
+    for _ in range(n):
+        line = input()
+        # parseaddr splits the input line into a (name, email) tuple
+        parsed_name, parsed_email = email.utils.parseaddr(line)
+        
+        # Define the regex pattern according to the problem rules
+        # ^[a-zA-Z] ensures username starts with a letter
+        # [a-zA-Z0-9_.-]+ allows subsequent valid chars
+        # @ separates username and domain
+        # [a-zA-Z]+ for domain
+        # \. for the dot separator
+        # [a-zA-Z]{1,3}$ for extension of length 1 to 3
+        pattern = r"^[a-zA-Z][a-zA-Z0-9_.-]+@[a-zA-Z]+\.[a-zA-Z]{1,3}$"
+        
+        # Use re.match to check if the entire email string matches the pattern
+        if re.match(pattern, parsed_email):
+            # formataddr puts the name and valid email back into the required output format
+            print(email.utils.formataddr((parsed_name, parsed_email)))
+
+if __name__ == "__main__":
+    solve()
+
