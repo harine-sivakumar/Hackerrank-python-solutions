@@ -1,0 +1,18 @@
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+import re
+
+string = input()
+substring = input()
+
+# Use a positive lookahead assertion (?=...) to find overlapping matches
+pattern = re.compile(r'(?=' + re.escape(substring) + r')')
+matches = list(pattern.finditer(string))
+
+if not matches:
+    print("(-1, -1)")
+else:
+    for match in matches:
+        # match.start() gives the starting index of the *lookahead assertion* (which is the start of the substring)
+        # The end index is calculated by adding the length of the substring to the start index, then subtracting 1 for the problem's *inclusive* index requirement for the output format.
+        # Note: The problem asks for the output format (start_index, end_index), where end_index is the last character's index, not the slice-style end index.
+        print(f"({match.start()}, {match.start() + len(substring) - 1})")
